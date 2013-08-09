@@ -7,10 +7,11 @@ angular.module('App', ['firebase'])
   });
 angular.module('App')
   .controller('MainCtrl', function($scope, angularFire) {
+    var package = require('./package');
     // init chat item
     $scope.chat = { nick: 'Anonymous'};
     // get chats
-    var url = "https://nwchat.firebaseio.com/chats";
+    var url = package.firebase;
     $scope.chats = angularFire(url, $scope, 'chats', []);
 
     $scope.add = function(chat) {
