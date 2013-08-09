@@ -1,0 +1,21 @@
+<div class="navbar navbar-fixed-top jumbotron">
+  <div class="pull-right col-3">
+    <input type="text" style="padding-left: 3px;" ng-model="chat.nick">
+    <label>NickName</label>
+  </div>
+  <h3>nwChat</h3>
+</div>
+<div class="container" style="margin-top: 150px;margin-bottom: 100px;">
+  <ul style="margin-top: 20px;" class="col-12 nav">
+    <li ng-repeat="chat in chats">
+      <div style="padding: 5px;background: whitesmoke; color: darkblue;text-align: right;">{{chat.nick}} - {{chat.timestamp | date:"MM/dd/yy hh:mm"}}</div>
+      <div style="padding: 5px;">{{chat.msg}}</div>
+    </li>
+  </ul>
+  <div class="navbar navbar-fixed-bottom" style="padding: 20px;">
+    <form class="form-inline" ng-submit="add(chat)">
+      <textarea autofocus class="col-9" style="padding-left: 3px;" ng-model="chat.msg"></textarea>
+      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+    </form>
+  </div>
+</div>
